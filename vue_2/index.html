@@ -20,10 +20,22 @@
     <h1>hello,</h1>
 
     <div id="app">
+
+        <!-- attrinute binding -->
+        <a :href="url">best</a>
+
       <div v-if="showBooks">
-        <p>{{title}} - {{author}} - {{age}}</p>
-      </div>
+        <ul>
+            <li  v-for="book in books">
+                <img :src="book.img" :alt="book.title">
+                <h3>{{book.title}}</h3>
+                <p>{{book.author}}</p>
+            </li>
+        </ul>
       <div>
+
+
+
         <button @click="toggleShowBooks">
           <span v-if="showBooks">Hide books</span>
           <span v-else>show books</span>
@@ -31,12 +43,12 @@
       </div>
 
       <!-- mouse events -->
-      <div class="box" @mouseover="handleEvent($event,5)">mouseover</div>
+      <!-- <div class="box" @mouseover="handleEvent($event,5)">mouseover</div>
       <div class="box" @mouseleave="handleEvent">mouseleave</div>
       <div class="box" @dblclick="handleEvent">doubleclick</div>
       <div class="box" @mousemove="handleMouseMove">
         position - {{x}} - {{y}}
-      </div>
+      </div> -->
 
       <!-- <button @click="increaseNumber">increase age</button>
       <button @click="decreaseNumber">decrease age</button>

@@ -1,12 +1,13 @@
 const app = Vue.createApp({
     data() {
         return {
+            url:"http://www.thenetninja.co.uk",
             showBooks: true,
-            title: 'The Final Empire',
-            author: 'joshua Atanu',
-            age: '25',
-            x: 0,
-            y: 0
+            books: [
+                { title: "name of the wind", author: "patrick rothfus",img: 'assets/1.jpg'  },
+                { title: "Osofia in london", author: "Nkem Owoh" ,img: 'assets/2.jpg'},
+                {title :"Stealing Zenebu", author:"pasat volks", img: 'assets/3.jpg'}
+            ]
         }
     },
     methods: {
@@ -19,9 +20,9 @@ const app = Vue.createApp({
         // decreaseNumber() {
         //     this.age--
         // }
-        // toggleShowBooks() {
-        //     this.showBooks = !this.showBooks
-        // },
+        toggleShowBooks() {
+            this.showBooks = !this.showBooks
+        },
         // handleEvent(e, data) {
         //     console.log(e, e.type)
         //     if (data) {
