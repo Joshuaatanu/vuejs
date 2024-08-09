@@ -10,7 +10,18 @@
     <h1>hello,</h1>
 
     <div id="app">
-      <p>{{title}} - {{author}} - {{age}}</p>
+      <div v-if="showBooks">
+        <p>{{title}} - {{author}} - {{age}}</p>
+      </div>
+      <button @click="toggleShowBooks">
+        <span v-if="showBooks">Hide books</span>
+        <span v-else>show books</span>
+      </button>
+      <div v-show="showBooks">currently showing books</div>
+
+      <!-- <button @click="increaseNumber">increase age</button>
+      <button @click="decreaseNumber">decrease age</button>
+      <div @click="changeTitle('Habringer of liget')">change book title</div> -->
     </div>
 
     <script src="app.js"></script>
