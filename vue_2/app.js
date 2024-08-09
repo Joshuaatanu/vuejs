@@ -4,9 +4,9 @@ const app = Vue.createApp({
             url:"http://www.thenetninja.co.uk",
             showBooks: true,
             books: [
-                { title: "name of the wind", author: "patrick rothfus",img: 'assets/1.jpg'  },
-                { title: "Osofia in london", author: "Nkem Owoh" ,img: 'assets/2.jpg'},
-                {title :"Stealing Zenebu", author:"pasat volks", img: 'assets/3.jpg'}
+                { title: "name of the wind", author: "patrick rothfus",img: 'assets/1.jpg', isFav:true  },
+                { title: "Osofia in london", author: "Nkem Owoh" ,img: 'assets/2.jpg', isFav:true},
+                {title :"Stealing Zenebu", author:"pasat volks", img: 'assets/3.jpg', isFav:false}
             ]
         }
     },
@@ -23,6 +23,10 @@ const app = Vue.createApp({
         toggleShowBooks() {
             this.showBooks = !this.showBooks
         },
+        handleFav(book) {
+            book.isFav = !book.isFav
+            console.log("testinf")
+        }
         // handleEvent(e, data) {
         //     console.log(e, e.type)
         //     if (data) {
@@ -33,7 +37,13 @@ const app = Vue.createApp({
         //     this.x = e.offsetX
         //     this.y = e.offsetY
         // }
+    },
+    computed: {
+        filteredBooks() {
+            return this.books.filter((book)=>book.isFav)
+        }
     }
+
     
 
 
